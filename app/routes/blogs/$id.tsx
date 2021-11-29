@@ -19,6 +19,8 @@ export let loader: LoaderFunction = ({ params }) => {
 };
 
 export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error.message);
+
   return <div>Hmm there seems to have been an error...</div>;
 }
 
@@ -27,7 +29,7 @@ export default function ID() {
   return (
     <>
       <div dangerouslySetInnerHTML={{ __html: slug }} />
-      <Link to='/'>Home</Link>
+      <Link to="/blogs">Home</Link>
     </>
   );
 }
