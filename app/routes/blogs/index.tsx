@@ -1,28 +1,28 @@
-import React from "react";
-import { json, useLoaderData, Link } from "remix";
+import { useLoaderData, Link } from "remix";
 import type { LoaderFunction } from "remix";
-import path from "path";
-import fs from "fs";
+import { getBlogs } from "../../utils/functions.server";
 
 type IndexRoute = {
   message: string;
   files: string[];
 };
 
-export let loader: LoaderFunction = async () => {
-  const blogsPath = path.join(process.cwd(), "/app/blogs");
-  const files = fs.readdirSync(blogsPath);
-  return json({
+export let loader: LoaderFunction = () => {
+  console.log(process.env.NODE_ENV);
+
+  return {
     message: "Home",
-    files,
-  });
+    files: getBlogs(),
+  };
 };
 
 export default function blogs() {
   const data = useLoaderData<IndexRoute>();
+  console.log(process.env.NODE_ENV);
+
   return (
     <div>
-      <h2>Blogs</h2>
+      <h1>Blogs</h1>
       <ul>
         {data.files.map((fileName) => {
           const f = fileName.substr(0, fileName.length - 3);
@@ -33,6 +33,7 @@ export default function blogs() {
           );
         })}
       </ul>
+      <Link to="/">Home</Link>
     </div>
   );
 }
