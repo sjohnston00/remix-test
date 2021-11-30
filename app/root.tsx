@@ -5,7 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
+  useCatch
 } from "remix";
 import type { LinksFunction } from "remix";
 
@@ -18,8 +18,8 @@ export let links: LinksFunction = () => {
     {
       rel: "stylesheet",
       href: darkStylesUrl,
-      media: "(prefers-color-scheme: dark)",
-    },
+      media: "(prefers-color-scheme: dark)"
+    }
   ];
 };
 
@@ -37,7 +37,7 @@ export default function App() {
 export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);
   return (
-    <Document title="Error!">
+    <Document title='Error!'>
       <Layout>
         <div>
           <h1>There was an error</h1>
@@ -91,21 +91,21 @@ export function CatchBoundary() {
 
 function Document({
   children,
-  title,
+  title
 }: {
   children: React.ReactNode;
   title?: string;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
       </head>
-      <body className="container">
+      <body className='container'>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -116,9 +116,5 @@ function Document({
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <div>{children}</div>
-    </>
-  );
+  return <>{children}</>;
 }

@@ -12,7 +12,7 @@ export let loader: LoaderFunction = () => {
 
   return {
     message: "Home",
-    files: getBlogs(),
+    files: getBlogs()
   };
 };
 
@@ -21,8 +21,7 @@ export default function blogs() {
   console.log(process.env.NODE_ENV);
 
   return (
-    <div>
-      <h1>Blogs</h1>
+    <>
       <ul>
         {data.files.map((fileName) => {
           const f = fileName.substr(0, fileName.length - 3);
@@ -33,7 +32,7 @@ export default function blogs() {
           );
         })}
       </ul>
-      <Link to="/">Home</Link>
-    </div>
+      <Link to='/'>Home</Link>
+    </>
   );
 }

@@ -11,8 +11,8 @@ export default function id() {
   const blog = useLoaderData();
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: blog }} />
-      <Link to="/blogs">Back</Link>
+      <article dangerouslySetInnerHTML={{ __html: blog }} />
+      <Link to='/blogs'>Back</Link>
     </>
   );
 }

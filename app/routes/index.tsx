@@ -4,15 +4,15 @@ import { Link } from "remix";
 export let meta: MetaFunction = () => {
   return {
     title: "Remix",
-    description: "Home page",
+    description: "Home page"
   };
 };
 
 export default function Index() {
   return (
-    <div>
+    <>
       <h1>Home</h1>
-      <Link to="/blogs">Blogs</Link>
-    </div>
+      <Link to='/blogs'>Blogs</Link>
+    </>
   );
 }
